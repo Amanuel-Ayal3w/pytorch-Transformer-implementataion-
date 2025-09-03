@@ -10,7 +10,7 @@ class inputEmbedding(nn.Module):
         self.embedding = nn.Embedding(vocab_size,d_model)
 
 def forward(self,x):
-     return self.embedding(x) * math.sqrt(self.d_model)
+     return self.embedding(x) * math.sqrt(self.d_model
 
 
 class positionalEmbedding(nn.module):
@@ -150,6 +150,7 @@ class Encoder(nn.Module):
         super().__init__()
         self.layers = layers
         self.norm = LayerNormalization(features)
+        
 
     def forward(self, x, mask):
         for layer in self.layers:
