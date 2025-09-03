@@ -28,6 +28,11 @@ class positionalEmbedding(nn.module):
         postion = torch.arrange(0,seq_len,d_model)
         div_term = torch.exp(torch.arange(0,d_model,2).float()*(-math.log(1000.0)/d_model))
 
+        def forward(self, x):
+            # x: (batch, seq_len, d_model)
+            x = x + self.pe[:, :x.size(1), :]
+            return self.dropout(x)
+
 
 class LayerNormalization(nn.Module):
 
@@ -35,7 +40,7 @@ class LayerNormalization(nn.Module):
         super().__init__()
         self.eps = eps
         self.alpha = nn.Parameter(torch.ones(features)) # alpha is a learnable parameter
-        self.bias = nn.Parameter(torch.zeros(features)) # bias is a learnable parameter
+        self.bias = nn.Parameter(torch.zeros(features)) # bias is a learnable parameterw
 
     def forward(self, x):
         # x: (batch, seq_len, hidden_size)
