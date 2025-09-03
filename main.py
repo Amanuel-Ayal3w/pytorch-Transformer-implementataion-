@@ -9,8 +9,10 @@ class inputEmbedding(nn.Module):
         self.vocab_size = vocab_size
         self.embedding = nn.Embedding(vocab_size,d_model)
 
-def forward(self,x):
-     return self.embedding(x) * math.sqrt(self.d_model
+def forward(self, x):
+        # (batch, seq_len) --> (batch, seq_len, d_model)
+        # Multiply by sqrt(d_model) to scale the embeddings according to the paper
+        return self.embedding(x) * math.sqrt(self.d_model)
 
 
 class positionalEmbedding(nn.module):
@@ -184,3 +186,8 @@ class Decoder(nn.Module):
         for layer in self.layers:
             x = layer(x, encoder_output, src_mask, tgt_mask)
         return self.norm(x)
+
+
+
+
+
