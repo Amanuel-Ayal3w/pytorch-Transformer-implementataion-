@@ -15,7 +15,7 @@ class inputEmbedding(nn.Module):
         return self.embedding(x) * math.sqrt(self.d_model)
 
 
-class positionalEncoding(nn.Module):
+class PositionalEncoding(nn.Module):
     def __init__(self, d_model: int, seq_len: int, dropout: float) -> None:
         super().__init__()
         self.d_model = d_model
@@ -205,7 +205,7 @@ class ProjectionLayer(nn.Module):
     
 class Transformer(nn.Module):
 
-    def __init__(self, encoder: Encoder, decoder: Decoder, src_embed: inputEmbedding, tgt_embed: inputEmbedding, src_pos: positionalEncoding, tgt_pos: PositionalEncoding, projection_layer: ProjectionLayer) -> None:
+    def __init__(self, encoder: Encoder, decoder: Decoder, src_embed: inputEmbedding, tgt_embed: inputEmbedding, src_pos: PositionalEncoding, tgt_pos: PositionalEncoding, projection_layer: ProjectionLayer) -> None:
         super().__init__()
         self.encoder = encoder
         self.decoder = decoder
@@ -239,8 +239,8 @@ def build_transformer(src_vocab_size: int, tgt_vocab_size: int, src_seq_len: int
     tgt_embed = inputEmbedding(d_model, tgt_vocab_size)
 
     # Create the positional encoding layers
-    src_pos = positionalEncoding(d_model, src_seq_len, dropout)
-    tgt_pos = positionalEncoding(d_model, tgt_seq_len, dropout)
+    src_pos = PositionalEncoding(d_model, src_seq_len, dropout)
+    tgt_pos = PositionalEncoding(d_model, tgt_seq_len, dropout)
     
     # Create the encoder blocks
     encoder_blocks = []
