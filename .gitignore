@@ -348,3 +348,6 @@ outputs/
 config.json
 secrets.json
 .env.local
+
+
+.kiro/
