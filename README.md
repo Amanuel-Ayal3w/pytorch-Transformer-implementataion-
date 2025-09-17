@@ -4,7 +4,7 @@ A comprehensive implementation of conversational AI using PyTorch with two diffe
 
 ## 🚀 Features
 
-- **Two AI Architectures**: GPT-style (like ChatGPT) and Encoder-Decoder (like Google Translate)
+- **Two AI Architectures**: GPT-style (like ChatGPT) and Encoder-Decoder
 - **Complete Training Pipeline**: From raw text to trained conversational AI
 - **Interactive Chat Interfaces**: Natural conversation with your trained models
 - **English Conversation Dataset**: 3,690+ conversation pairs for training
@@ -43,7 +43,6 @@ User Input → [Encoder] → Context → [Decoder] → Response
 ├── lm_chat.py             # Chat with GPT-style model
 ├── chatbot.py             # Chat with encoder-decoder model
 ├── english_corpus.txt     # Conversation training data
-└── .kiro/specs/           # Development specifications
 ```
 
 ## 🛠️ Setup
@@ -83,33 +82,6 @@ python3 train_chat.py
 
 # 2. Chat with your encoder-decoder model
 python3 chatbot.py
-```
-
-## 💬 Chat Interface Examples
-
-### GPT-Style Chat
-```
-🤖 GPT-STYLE CONVERSATIONAL AI
-============================================================
-👤 You: Hi, how are you doing?
-🤖 GPT: I'm doing well, thank you! How about yourself?
-
-👤 You: generate Once upon a time
-🤖 GPT: Once upon a time there was a young girl who lived in a small village...
-
-👤 You: quit
-🤖 GPT: Goodbye! Thanks for chatting!
-```
-
-### Encoder-Decoder Chat
-```
-🤖 CONVERSATIONAL AI CHATBOT
-============================================================
-👤 You: What school do you go to?
-🤖 Bot: I go to PCC.
-
-👤 You: Do you like it there?
-🤖 Bot: It's okay. It's a really big campus.
 ```
 
 ## 📊 Training Details
