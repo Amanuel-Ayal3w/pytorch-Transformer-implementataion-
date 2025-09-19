@@ -5,18 +5,11 @@ from train_lm import GPTLanguageModel
 from tokenizer import SimpleTokenizer
 
 class GPTChatBot:
-    """
-    Interactive chatbot using GPT-style language model (decoder-only).
-    """
+   
+
     
     def __init__(self, model_path='language_model.pt', tokenizer_path='tokenizer.pt'):
-        """
-        Initialize GPT chatbot with trained model and tokenizer.
-        
-        Args:
-            model_path (str): Path to trained GPT model
-            tokenizer_path (str): Path to tokenizer
-        """
+   
         self.model_path = model_path
         self.tokenizer_path = tokenizer_path
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -30,7 +23,7 @@ class GPTChatBot:
         # Load model
         self.model = self.load_model()
         
-        print("✅ GPT ChatBot ready!")
+        print(" GPT ChatBot ready!")
     
     def load_tokenizer(self):
         """Load the tokenizer from file."""
