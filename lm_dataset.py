@@ -22,7 +22,3 @@ class LanguageModelingDataset(Dataset):
         input_seq, target_seq = self.samples[idx]
         return torch.tensor(input_seq), torch.tensor(target_seq)
 
-# Example usage:
-# tokenizer = SimpleTokenizer()
-# tokenizer.fit([open('english_corpus.txt', encoding='utf-8').read()])
-# dataset = LanguageModelingDataset('english_corpus.txt', tokenizer)

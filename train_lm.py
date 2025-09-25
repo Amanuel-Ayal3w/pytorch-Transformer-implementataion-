@@ -33,6 +33,7 @@ class GPTLanguageModel(nn.Module):
 DATA_PATH = 'english_corpus.txt' 
 BATCH_SIZE = 32
 EPOCHS = 10
+# block_size
 MAX_LEN = 32
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 MODEL_PATH = 'language_model.pt'

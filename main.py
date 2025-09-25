@@ -26,6 +26,9 @@ class PositionalEncoding(nn.Module):
         pe = torch.zeros(seq_len, d_model)
         position = torch.arange(0, seq_len, dtype=torch.float).unsqueeze(1)
         div_term = torch.exp(torch.arange(0, d_model, 2).float() * (-math.log(10000.0) / d_model))
+        
+        # Assign sine to even indices and cosine to odd indices in the embedding dimension.
+        # This generates unique positional encodings for each position and dimension, allowing the model to distinguish token order.
         pe[:, 0::2] = torch.sin(position * div_term)
         pe[:, 1::2] = torch.cos(position * div_term)
         pe = pe.unsqueeze(0)  # (1, seq_len, d_model)
@@ -109,7 +112,7 @@ class MultiHeadAttentionBlock(nn.Module):
 
             # (batch, seq_len, d_model) --> (batch, seq_len, h, d_k) --> (batch, h, seq_len, d_k)
             query = query.view(query.shape[0], query.shape[1], self.h, self.d_k).transpose(1, 2)
-            key = key.view(key.shape[0], key.shape[1], self.h, self.d_k).transpose(1, 2)
+            key = key.view(key.shape[ 0], key.shape[1], self.h, self.d_k).transpose(1, 2)
             value = value.view(value.shape[0], value.shape[1], self.h, self.d_k).transpose(1, 2)
 
             # Calculate attention

@@ -141,7 +141,7 @@ class GPTChatBot:
             
             # For conversation, we can try different approaches:
             # Approach 1: Direct continuation
-            response = self.generate_text(user_input, max_gen=max_gen)
+            response = self.generate_text(user_input, max_gen=max_gen, top_k=10)
             
             # Clean response
             response = response.strip()
